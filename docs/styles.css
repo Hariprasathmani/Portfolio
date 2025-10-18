@@ -118,7 +118,7 @@ line-height: 1.7;
 
 /* ---------- Contact Section ---------- */
 #contact {
-background: #2f80ed;
+background: #664fb8;
 color: white;
 text-align: center;
 padding: 60px 0;
@@ -149,6 +149,24 @@ transition: 0.3s;
 a:hover, button:hover {
 color: #3a3d98;
 }
+#resume a {
+  display: inline-block;
+  background: linear-gradient(135deg, #2f80ed, #3a3d98);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(47, 128, 237, 0.3);
+}
+
+#resume a:hover {
+  background: linear-gradient(135deg, #3a3d98, #2f80ed);
+  box-shadow: 0 6px 15px rgba(47, 128, 237, 0.5);
+  transform: translateY(-3px);
+}
+
 
 /* ---------- Responsive Design ---------- */
 @media (max-width: 768px) {
