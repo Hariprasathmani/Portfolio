@@ -1,84 +1,684 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hari prasath mani- Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hari Prasath Mani – Full Stack Developer & CS Student at SJCE, Chennai. Building scalable web apps and solving real-world problems." />
+  <meta name="keywords" content="Hari Prasath Mani, Full Stack Developer, React Developer, CS Student, SJCE, Chennai, Portfolio" />
+  <meta property="og:title" content="Hari Prasath Mani | Full Stack Developer" />
+  <meta property="og:description" content="Building scalable web apps and solving real-world problems." />
+  <title>Hari Prasath Mani | Full Stack Developer & CS Student</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Header Section -->
-  <header>
-    <div class="container">
-      <h1>Hari prasath mani</h1>
-      <p>CSE-STUDENT|PROBLEM SOLVER|FULL STACK DEVELOPMENT ENTHUSIAST</p>
+  <!-- Page Loader -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-code">
+        <span class="loader-bracket">{</span>
+        <span class="loader-text">loading<span class="loader-dots">...</span></span>
+        <span class="loader-bracket">}</span>
+      </div>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
     </div>
-  </header>
+  </div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>HPM<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certifications" class="nav-link">Certs</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="resume.pdf" download class="nav-resume-btn" id="navResumeBtn">Resume <i class="fas fa-download"></i></a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <div class="dot-grid"></div>
+      <div class="hero-glow glow-1"></div>
+      <div class="hero-glow glow-2"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-content fade-in-up">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Available for opportunities</span>
+        </div>
+        <h1 class="hero-name">Hari Prasath <span class="gradient-text">Mani</span></h1>
+        <div class="hero-role">
+          <span class="role-prefix">I'm a </span>
+          <span class="typed-text" id="typedText"></span>
+          <span class="typed-cursor">|</span>
+        </div>
+        <p class="hero-bio">
+          Computer Science undergrad at St. Joseph's College of Engineering, Chennai. I build responsive web apps, integrate APIs, and love competitive programming.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <span>View My Work</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="resume.pdf" download class="btn btn-secondary" id="resumeDownloadBtn">
+            <span>Download Resume</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/Hariprasathmani" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/hari-prasath-mani-990383287" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://leetcode.com/u/Hariprasathmani/" target="_blank" rel="noopener" class="social-icon" aria-label="LeetCode">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+            </svg>
+          </a>
+          <a href="mailto:hariprasathmani102@gmail.com" class="social-icon" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual fade-in-right">
+        <div class="hero-card-wrapper">
+          <div class="hero-img-ring">
+            <img src="avatar.png" alt="Hari Prasath Mani" class="hero-avatar" />
+          </div>
+          <div class="floating-badge badge-react">
+            <i class="fab fa-react"></i> React
+          </div>
+          <div class="floating-badge badge-python">
+            <i class="fab fa-python"></i> Python
+          </div>
+          <div class="floating-badge badge-leetcode">
+            300+ LeetCode
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
 
   <!-- About Section -->
-  <section id="about">
+  <section id="about" class="section about-section">
     <div class="container">
-      <h2>About Me</h2>
-      
-      <p>"I’m Hari prasath mani, a passionate web developer with a strong focus on creating user-friendly websites. I specialize in front-end development and have a love for clean, efficient code. My expertise lies in JavaScript, HTML, and CSS, with a constant drive to learn new technologies."</p>
+      <div class="section-header reveal">
+        <span class="section-tag">// 01. about</span>
+        <h2>About <span class="gradient-text">Me</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-col reveal">
+          <div class="about-img-wrapper">
+            <img src="avatar.png" alt="Hari Prasath Mani" class="about-avatar" />
+            <div class="about-img-decoration"></div>
+            <div class="currently-learning">
+              <div class="learning-dot"></div>
+              <span>Currently Learning:</span>
+              <div class="learning-tags">
+                <span class="learn-tag">Node.js</span>
+                <span class="learn-tag">System Design</span>
+                <span class="learn-tag">DSA Advanced</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-content reveal">
+          <p class="about-bio">
+            I'm a <strong>4th-year B.E. Computer Science student</strong> (CGPA: 8.52) passionate about frontend and full-stack development. I've interned at <strong>Infosys Springboard</strong>, <strong>Codec Technologies</strong>, and <strong>CodSoft</strong>, where I built production-grade apps using React, Flask, MongoDB, and MySQL. Outside of academics, I solve <strong>300+ LeetCode problems</strong> and participate in hackathons like SIH and EY Hackathon.
+          </p>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">300<span class="stat-plus">+</span></div>
+              <div class="stat-label">LeetCode Problems</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">1000<span class="stat-plus">+</span></div>
+              <div class="stat-label">SkillRack Problems</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">3</div>
+              <div class="stat-label">Internships</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">3</div>
+              <div class="stat-label">Projects Built</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills">
+  <section id="skills" class="section skills-section">
     <div class="container">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML5, CSS3, JavaScript</li>
-        <li>Java,C</li>
-        <li>Responsive Web Design</li>
-        <!-- Add more skills as needed -->
-      </ul>
+      <div class="section-header reveal">
+        <span class="section-tag">// 02. skills</span>
+        <h2>Technical <span class="gradient-text">Skills</span></h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title"><i class="fas fa-code"></i> Languages</h3>
+          <div class="skill-badges">
+            <span class="skill-badge"><i class="fab fa-java"></i> Java</span>
+            <span class="skill-badge">C</span>
+            <span class="skill-badge"><i class="fab fa-python"></i> Python</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title"><i class="fas fa-globe"></i> Web Technologies</h3>
+          <div class="skill-badges">
+            <span class="skill-badge"><i class="fab fa-html5"></i> HTML</span>
+            <span class="skill-badge"><i class="fab fa-css3-alt"></i> CSS</span>
+            <span class="skill-badge"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="skill-badge"><i class="fab fa-react"></i> React.js</span>
+            <span class="skill-badge">Express.js</span>
+            <span class="skill-badge"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title"><i class="fas fa-database"></i> Databases</h3>
+          <div class="skill-badges">
+            <span class="skill-badge">MongoDB</span>
+            <span class="skill-badge">MySQL</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title"><i class="fas fa-tools"></i> Tools & DevOps</h3>
+          <div class="skill-badges">
+            <span class="skill-badge"><i class="fab fa-git-alt"></i> Git</span>
+            <span class="skill-badge"><i class="fab fa-github"></i> GitHub</span>
+            <span class="skill-badge">VS Code</span>
+            <span class="skill-badge">Postman</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title"><i class="fas fa-cloud"></i> Cloud & Other</h3>
+          <div class="skill-badges">
+            <span class="skill-badge"><i class="fab fa-aws"></i> AWS</span>
+            <span class="skill-badge">Oracle Cloud</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section experience-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 03. experience</span>
+        <h2>Work <span class="gradient-text">Experience</span></h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Full Stack Intern</h3>
+                <div class="timeline-company">
+                  <span class="company-name">Infosys Springboard</span>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-period"><i class="fas fa-calendar"></i> Feb 2026 – Apr 2026</span>
+              </div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed modular and responsive UI components using <strong>React.js</strong> for MedVault.</li>
+              <li>Integrated REST APIs and collaborated with backend team on <strong>MySQL</strong> database operations.</li>
+              <li>Followed <strong>Git-based workflow</strong> for version control and feature development.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tl-tag">React.js</span>
+              <span class="tl-tag">MySQL</span>
+              <span class="tl-tag">REST APIs</span>
+              <span class="tl-tag">Git</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Web Development Intern</h3>
+                <div class="timeline-company">
+                  <span class="company-name">Codec Technologies</span>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-period"><i class="fas fa-calendar"></i> May 2025 – Jun 2025</span>
+              </div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Built an end-to-end <strong>E-Commerce Application</strong> as the final project.</li>
+              <li>Implemented authentication, product management, and database integration.</li>
+              <li>Worked with <strong>HTML, CSS, JavaScript, MongoDB, and Flask</strong>.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tl-tag">Flask</span>
+              <span class="tl-tag">MongoDB</span>
+              <span class="tl-tag">JavaScript</span>
+              <span class="tl-tag">HTML/CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Web Development Intern</h3>
+                <div class="timeline-company">
+                  <span class="company-name">CodSoft</span>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-period"><i class="fas fa-calendar"></i> Jul 2024 – Aug 2024</span>
+              </div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed responsive web applications using <strong>HTML, CSS, and JavaScript</strong>.</li>
+              <li>Implemented interactive UI components and optimized website performance.</li>
+              <li>Completed assigned development tasks and project-based learning activities.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tl-tag">HTML</span>
+              <span class="tl-tag">CSS</span>
+              <span class="tl-tag">JavaScript</span>
+              <span class="tl-tag">UI/UX</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects">
+  <section id="projects" class="section projects-section">
     <div class="container">
-      <h2>Projects</h2>
-      <div class="project">
-    <h3>E-Commerce Application</h3>
-    <p>"I developed an e-commerce application using Python for the backend, along with HTML, CSS, and JavaScript for the frontend. The application allows users to browse products, add items to a shopping cart, and proceed to secure checkout. Python handles server-side logic, such as user authentication, product management, and order processing. HTML and CSS were used to create a responsive and visually appealing user interface, while JavaScript added interactivity, such as dynamic content updates and real-time form validation. This project showcases full-stack development skills and demonstrates how different technologies can work together to build a complete online shopping experience."</p>
-  </div>
-       <div class="project">
-    <h3>Learnex – AI-Powered Learning Platform</h3>
-    <p>"Learnex is an AI-based learning platform designed to make personalized education accessible and engaging. The system uses machine learning algorithms to recommend study materials, quizzes, and courses based on each user’s learning style and progress. The platform integrates interactive dashboards, progress tracking, and a chatbot for instant support. Built with HTML, CSS, JavaScript, and Python (Flask) for the backend, Learnex demonstrates the potential of AI in EdTech and showcases my ability to combine front-end design, backend development, and intelligent recommendation systems."</p>
-  </div>
+      <div class="section-header reveal">
+        <span class="section-tag">// 04. projects</span>
+        <h2>Featured <span class="gradient-text">Projects</span></h2>
       </div>
-      <!-- Add more projects as needed -->
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card reveal">
+          <div class="project-card-header">
+            <div class="project-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="project-links-top">
+              <a href="https://github.com/Hariprasathmani/learnex" target="_blank" rel="noopener" class="project-link-btn" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">LearnEx</h3>
+          <p class="project-subtitle">Personalized Learning Platform</p>
+          <p class="project-desc">
+            Interactive learning platform with AI chatbot integration and secure user authentication. Delivers personalized study pathways.
+          </p>
+          <div class="project-tags">
+            <span class="proj-tag">#AI</span>
+            <span class="proj-tag">#FullStack</span>
+            <span class="proj-tag">#Auth</span>
+          </div>
+          <div class="project-tech">
+            <span class="tech-pill">HTML</span>
+            <span class="tech-pill">CSS</span>
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">Supabase</span>
+            <span class="tech-pill">Express.js</span>
+          </div>
+          <a href="https://github.com/Hariprasathmani/learnex" target="_blank" rel="noopener" class="project-cta">
+            View on GitHub <i class="fas fa-external-link-alt"></i>
+          </a>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card reveal">
+          <div class="project-card-header">
+            <div class="project-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="project-links-top">
+              <a href="https://github.com/Hariprasathmani/e-commerce-application" target="_blank" rel="noopener" class="project-link-btn" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">E-Commerce App</h3>
+          <p class="project-subtitle">Full-Stack Shopping Platform</p>
+          <p class="project-desc">
+            Full-stack shopping platform with user authentication and dynamic product management built during Codec Technologies internship.
+          </p>
+          <div class="project-tags">
+            <span class="proj-tag">#Flask</span>
+            <span class="proj-tag">#MongoDB</span>
+            <span class="proj-tag">#Auth</span>
+          </div>
+          <div class="project-tech">
+            <span class="tech-pill">HTML</span>
+            <span class="tech-pill">CSS</span>
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">MongoDB</span>
+            <span class="tech-pill">Flask</span>
+          </div>
+          <a href="https://github.com/Hariprasathmani/e-commerce-application" target="_blank" rel="noopener" class="project-cta">
+            View on GitHub <i class="fas fa-external-link-alt"></i>
+          </a>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card reveal">
+          <div class="project-card-header">
+            <div class="project-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="project-links-top">
+              <a href="https://github.com/Hariprasathmani/EduPredict-Student-Performance-Prediction-System" target="_blank" rel="noopener" class="project-link-btn" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">EduPredict</h3>
+          <p class="project-subtitle">Student Performance Prediction</p>
+          <p class="project-desc">
+            ML system that predicts student academic performance using historical data and analytical models with interpretable insights.
+          </p>
+          <div class="project-tags">
+            <span class="proj-tag">#MachineLearning</span>
+            <span class="proj-tag">#Python</span>
+            <span class="proj-tag">#DataScience</span>
+          </div>
+          <div class="project-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Scikit-learn</span>
+            <span class="tech-pill">Pandas</span>
+            <span class="tech-pill">NumPy</span>
+          </div>
+          <a href="https://github.com/Hariprasathmani/EduPredict-Student-Performance-Prediction-System" target="_blank" rel="noopener" class="project-cta">
+            View on GitHub <i class="fas fa-external-link-alt"></i>
+          </a>
+        </article>
+
+      </div>
     </div>
   </section>
 
-  <!-- Resume Section -->
-  <section id="resume">
+  <!-- Certifications Section -->
+  <section id="certifications" class="section certs-section">
     <div class="container">
-      <h2>Resume</h2>
-      <a href="resume.pdf" download>Download My Resume</a>
+      <div class="section-header reveal">
+        <span class="section-tag">// 05. certifications</span>
+        <h2>My <span class="gradient-text">Certifications</span></h2>
+      </div>
+      <div class="certs-grid">
+
+        <div class="cert-card reveal">
+          <div class="cert-badge-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="cert-info">
+            <h4>Introduction to Programming in C</h4>
+            <span class="cert-issuer">NPTEL</span>
+          </div>
+          <div class="cert-ribbon"></div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-badge-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="cert-info">
+            <h4>Programming, Data Structures and Algorithms Using Python</h4>
+            <span class="cert-issuer">NPTEL</span>
+          </div>
+          <div class="cert-ribbon"></div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-badge-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <div class="cert-info">
+            <h4>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</h4>
+            <span class="cert-issuer">Oracle</span>
+          </div>
+          <div class="cert-ribbon oracle"></div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-badge-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <div class="cert-info">
+            <h4>Introduction to MongoDB</h4>
+            <span class="cert-issuer">MongoDB University</span>
+          </div>
+          <div class="cert-ribbon mongo"></div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-badge-icon">
+            <i class="fab fa-aws"></i>
+          </div>
+          <div class="cert-info">
+            <h4>Introduction to Cloud</h4>
+            <span class="cert-issuer">AWS Academy</span>
+          </div>
+          <div class="cert-ribbon aws"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section education-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 06. education</span>
+        <h2>My <span class="gradient-text">Education</span></h2>
+      </div>
+      <div class="education-cards">
+
+        <div class="edu-card reveal">
+          <div class="edu-icon"><i class="fas fa-university"></i></div>
+          <div class="edu-content">
+            <div class="edu-degree">B.E. Computer Science and Engineering</div>
+            <div class="edu-school">St. Joseph's College of Engineering, Chennai</div>
+            <div class="edu-meta">
+              <span><i class="fas fa-calendar-alt"></i> Aug 2023 – May 2027</span>
+              <span class="edu-score"><i class="fas fa-star"></i> CGPA: 8.52</span>
+            </div>
+          </div>
+          <div class="edu-card-glow"></div>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-icon"><i class="fas fa-school"></i></div>
+          <div class="edu-content">
+            <div class="edu-degree">HSC – Computer Science & Mathematics</div>
+            <div class="edu-school">Swami Vivekananda Matriculation Hr. Sec. School, Kanchipuram</div>
+            <div class="edu-meta">
+              <span><i class="fas fa-calendar-alt"></i> 2021 – 2023</span>
+              <span class="edu-score"><i class="fas fa-star"></i> 91%</span>
+            </div>
+          </div>
+          <div class="edu-card-glow"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements" class="section achievements-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 07. achievements</span>
+        <h2>Key <span class="gradient-text">Achievements</span></h2>
+      </div>
+      <div class="achievements-grid">
+        <div class="achievement-card reveal">
+          <div class="ach-icon"><i class="fas fa-trophy"></i></div>
+          <div class="ach-content">
+            <h4>300+ LeetCode Problems</h4>
+            <p>Solved over 300 algorithmic problems covering arrays, graphs, DP, and more on LeetCode, and 1000+ on SkillRack.</p>
+          </div>
+        </div>
+        <div class="achievement-card reveal">
+          <div class="ach-icon"><i class="fas fa-keyboard"></i></div>
+          <div class="ach-content">
+            <h4>Competitive Programming</h4>
+            <p>Active participant on AtCoder, Codeforces, and CodeChef — sharpening problem-solving skills across global contests.</p>
+          </div>
+        </div>
+        <div class="achievement-card reveal">
+          <div class="ach-icon"><i class="fas fa-rocket"></i></div>
+          <div class="ach-content">
+            <h4>Hackathon Participant</h4>
+            <p>Participated in SIH (Smart India Hackathon), EY Hackathon, and other collaborative coding competitions.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="section contact-section">
     <div class="container">
-      <h2>Contact</h2>
-      <p>Email: hariprasathmani102@gmail.com</p>
-      <p>Phone: 9344437357</p>
+      <div class="section-header reveal">
+        <span class="section-tag">// 08. contact</span>
+        <h2>Let's Build <span class="gradient-text">Together</span></h2>
+        <p class="section-subtext">Open to internships, full-stack projects, and collaborations.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <a href="mailto:hariprasathmani102@gmail.com" class="contact-card">
+            <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-card-body">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">hariprasathmani102@gmail.com</span>
+            </div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/hari-prasath-mani-990383287" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-card-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div class="contact-card-body">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">hari-prasath-mani</span>
+            </div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+          <a href="https://github.com/Hariprasathmani" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-card-icon"><i class="fab fa-github"></i></div>
+            <div class="contact-card-body">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">github.com/Hariprasathmani</span>
+            </div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+          <a href="tel:+919344437357" class="contact-card">
+            <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+            <div class="contact-card-body">
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">+91 93444 37357</span>
+            </div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+        </div>
+        <div class="contact-form-wrapper reveal">
+          <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="contactName">Your Name</label>
+              <input type="text" id="contactName" name="name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Your Email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="john@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" rows="5" placeholder="I'd love to collaborate on..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit-btn" id="submitBtn">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <i class="fas fa-check-circle"></i> Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Hari prasath mani. All rights reserved.</p>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span>HPM<span class="logo-bracket">/&gt;</span>
+      </div>
+      <p class="footer-text">
+        Designed & Built by <strong>Hari Prasath Mani</strong> &nbsp;·&nbsp; Chennai, India
+      </p>
+      <p class="footer-tagline">"Building scalable web apps and solving real-world problems."</p>
+      <div class="footer-socials">
+        <a href="https://github.com/Hariprasathmani" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/hari-prasath-mani-990383287" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:hariprasathmani102@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Hari Prasath Mani. All rights reserved.</p>
     </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
