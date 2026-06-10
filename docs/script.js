@@ -216,22 +216,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ===== CONTACT FORM =====
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
   e.preventDefault();
+  
+  const name = document.getElementById('contactName').value;
+  const email = document.getElementById('contactEmail').value;
+  const message = document.getElementById('contactMessage').value;
   const btn = document.getElementById('submitBtn');
   const success = document.getElementById('formSuccess');
 
-  // Simulate sending
+  // Update button state
   btn.innerHTML = '<span>Sending...</span><i class="fas fa-circle-notch fa-spin"></i>';
   btn.disabled = true;
 
-  setTimeout(() => {
+  try {
+    // IMPORTANT: Replace the URL below with your Formspree endpoint URL
+    const response = await fetch("https://formspree.io/f/xnjypwnn", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, message })
+    });
+    
+    if (response.ok) {
+      btn.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
+      btn.disabled = false;
+      success.innerHTML = '<i class="fas fa-check-circle"></i> Message sent successfully!';
+      success.classList.add('show');
+      document.getElementById('contactForm').reset();
+      setTimeout(() => success.classList.remove('show'), 5000);
+    } else {
+      throw new Error("Failed to send");
+    }
+  } catch (error) {
     btn.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
     btn.disabled = false;
+    success.innerHTML = '<i class="fas fa-exclamation-circle" style="color: #ff4757;"></i> Failed to send. Please try again.';
     success.classList.add('show');
-    document.getElementById('contactForm').reset();
     setTimeout(() => success.classList.remove('show'), 5000);
-  }, 1800);
+  }
 }
 
 // ===== STAT COUNTER ANIMATION =====
